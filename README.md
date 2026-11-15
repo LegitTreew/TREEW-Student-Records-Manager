@@ -1,173 +1,153 @@
-TREEW - STUDENT RECORDS MANAGER
-TEST PLAN
-============================================================
+[test_plan (1).txt](https://github.com/user-attachments/files/34868683/test_plan.1.txt)
++======================================================================+
+|                                                                      |
+|                 TREEW - STUDENT RECORDS MANAGER                     |
+|                           TEST PLAN                                  |
+|                                                                      |
++======================================================================+
 
-Author  : Treew
-Project : Student Records Manager
-Version : 1.0
-Date    : 15 November 2026
+  AUTHOR       Treew
+  PROJECT      Student Records Manager
+  VERSION      1.0
+  DATE         15 November 2026
 
-1. TEST OBJECTIVE
-------------------------------------------------------------
-The purpose of this test plan is to check that the Student
-Records Manager works correctly. The tests cover the six
-main features and input validation.
 
-2. TEST DATA
-------------------------------------------------------------
-The following sample student records were used:
+  01  TEST OBJECTIVE
+  --------------------------------------------------------------------
 
-    Student name       Score
-    -------------------------
-    Ani                 78
-    Bima                92
-    Citra               55
+  This test plan checks that the Student Records Manager works
+  correctly. It covers the six main features and input validation.
 
-3. TEST CASES AND RESULTS
-------------------------------------------------------------
 
-TEST T01 - Add Student
-Input / Action:
-    Add Ani with a score of 78.
-Expected Result:
-    Ani and the score 78 are stored.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  02  TEST DATA
+  --------------------------------------------------------------------
 
-............................................................
+  +----------------------+----------------+
+  | STUDENT NAME         | SCORE          |
+  +----------------------+----------------+
+  | Ani                  | 78             |
+  | Bima                 | 92             |
+  | Citra                | 55             |
+  +----------------------+----------------+
 
-TEST T02 - Invalid Student Score
-Input / Action:
-    Try to add a student with a score of 150.
-Expected Result:
-    The program rejects the score because it is outside
-    the allowed range of 0 to 100.
-Actual Result:
-    Worked as expected.
-Status: PASS
 
-............................................................
+  03  TEST CASES AND RESULTS
+  --------------------------------------------------------------------
 
-TEST T03 - View All Students
-Input / Action:
-    Select option 2 after adding the sample records.
-Expected Result:
-    All registered student names and scores are displayed.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T01 ]  ADD STUDENT
+  Input       Add Ani with a score of 78.
+  Expected    Ani and the score 78 are stored.
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T04 - Search for an Existing Student
-Input / Action:
-    Search for Bima.
-Expected Result:
-    Bima's record and score of 92 are displayed.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T02 ]  INVALID STUDENT SCORE
+  Input       Try to add a student with a score of 150.
+  Expected    The program rejects the score because it is outside
+              the allowed range of 0 to 100.
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T05 - Search for a Missing Student
-Input / Action:
-    Search for a name that is not registered.
-Expected Result:
-    The program displays "Student not found!"
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T03 ]  VIEW ALL STUDENTS
+  Input       Select option 2 after adding the sample records.
+  Expected    All registered student names and scores are displayed.
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T06 - Sort Students by Score
-Input / Action:
-    Select option 4 to sort, then option 2 to view the list.
-Expected Result:
-    Students appear from highest to lowest score:
-    Bima (92), Ani (78), Citra (55).
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T04 ]  SEARCH FOR AN EXISTING STUDENT
+  Input       Search for Bima.
+  Expected    Bima's record and score of 92 are displayed.
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T07 - Student Statistics
-Input / Action:
-    Select option 5 with the three sample records.
-Expected Result:
-    Average score: 75.00
-    Highest score: 92
-    Lowest score : 55
-    Passing       : 2
-    Failing       : 1
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T05 ]  SEARCH FOR A MISSING STUDENT
+  Input       Search for a name that is not registered.
+  Expected    The program displays "Student not found!"
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T08 - Remove a Student
-Input / Action:
-    Remove Citra.
-Expected Result:
-    Citra's name and score are removed.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T06 ]  SORT STUDENTS BY SCORE
+  Input       Select option 4 to sort, then option 2 to view the list.
+  Expected    Students appear from highest to lowest:
+              Bima (92), Ani (78), Citra (55).
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T09 - View Records After Removal
-Input / Action:
-    Select option 2 after removing Citra.
-Expected Result:
-    Only Ani and Bima remain in the list.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T07 ]  STUDENT STATISTICS
+  Input       Select option 5 with the three sample records.
+  Expected    Average: 75.00 | Highest: 92 | Lowest: 55
+              Passing: 2 | Failing: 1
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T10 - Invalid Menu Input
-Input / Action:
-    Enter a letter instead of a menu number.
-Expected Result:
-    The program displays an invalid-input message and
-    returns to the menu.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T08 ]  REMOVE A STUDENT
+  Input       Remove Citra.
+  Expected    Citra's name and score are removed.
+  Actual      Worked as expected.
+  Result      PASS
 
-............................................................
+  ....................................................................
 
-TEST T11 - Empty Student Records
-Input / Action:
-    View students or calculate statistics when no students
-    are registered.
-Expected Result:
-    The program displays a message that no records are
-    available.
-Actual Result:
-    Worked as expected.
-Status: PASS
+  [ T09 ]  VIEW RECORDS AFTER REMOVAL
+  Input       Select option 2 after removing Citra.
+  Expected    Only Ani and Bima remain in the list.
+  Actual      Worked as expected.
+  Result      PASS
 
-4. TEST SUMMARY
-------------------------------------------------------------
-Total test cases : 11
-Passed           : 11
-Failed           : 0
+  ....................................................................
 
-All tested features and input-validation cases behaved as
-expected during testing.
+  [ T10 ]  INVALID MENU INPUT
+  Input       Enter a letter instead of a menu number.
+  Expected    The program displays an invalid-input message and
+              returns to the menu.
+  Actual      Worked as expected.
+  Result      PASS
 
-5. NOTES
-------------------------------------------------------------
-Student records are stored in vectors while the program is
-running. The records are not saved permanently, so they are
-lost when the program closes.
+  ....................................................................
 
-============================================================
-End of Test Plan
+  [ T11 ]  EMPTY STUDENT RECORDS
+  Input       View students or calculate statistics when no students
+              are registered.
+  Expected    The program displays a message that no records are
+              available.
+  Actual      Worked as expected.
+  Result      PASS
+
+
+  04  TEST SUMMARY
+  --------------------------------------------------------------------
+
+  +----------------------+----------------+
+  | TOTAL TEST CASES     | 11             |
+  | PASSED               | 11             |
+  | FAILED               | 0              |
+  +----------------------+----------------+
+
+  All tested features and input-validation cases behaved as expected
+  during testing.
+
+
+  05  NOTES
+  --------------------------------------------------------------------
+
+  Student records are stored in vectors while the program is running.
+  Records are not saved permanently and are lost when the program
+  closes.
+
+
++======================================================================+
+|                    END OF TREEW TEST PLAN                            |
++======================================================================+
