@@ -8,7 +8,7 @@
 
           STUDENT RECORDS MANAGER
           -----------------------
-          Author  : Treew
+          Author  : Treew & Cello
           Version : 1.0
           Date    : 15 November 2026
 
