@@ -1,19 +1,19 @@
+[bug_note.md](https://github.com/user-attachments/files/34868981/bug_note.md)
 # BUG REPORT
 **TREEW Student Records Manager**
 
-**Bug Title:** Student Names With Spaces Not Being Read Correctly
+**Bug:** Student names with spaces were not read correctly.
 
-### 1. Description
-During testing, I found that the program could not correctly read student names containing spaces. For example, entering "John Smith" only saved the first name.
+### Description
+When entering a name such as "John Smith", the program only read "John". This affected adding, searching, and removing students by their full names.
 
-### 2. Cause
-The program used `cin >> name`, which reads input only until the first space.
+### Cause
+The program used `cin >> name`, which stops reading at the first space.
 
-### 3. Solution
-The input method needs to be changed to `getline()` so the program can read the student's full name.
+### Fix
+I changed the input to `getline(cin, name)` and handled the leftover newline using `cin.ignore()`.
 
-### 4. Expected Result
-The program should correctly accept and store full names, including spaces.
+### Result
+The program can now read full names with spaces. The fix should be tested in Add, Search, and Remove before submission.
 
-### 5. Status
-Pending implementation and testing.
+**Status:** Fixed in code, testing required.
