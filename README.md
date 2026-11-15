@@ -1,7 +1,7 @@
 [TREEW_test_plan.md](https://github.com/user-attachments/files/34868824/TREEW_test_plan.md)
 # Test Plan: TREEW Student Records Manager
 
-**Author:** Treew  
+**Author:** Treew & Cello
 **Project:** Student Records Manager  
 **Version:** 1.0  
 **Date:** 15 November 2026
