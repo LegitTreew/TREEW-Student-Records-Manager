@@ -1,4 +1,3 @@
-[README_11_Nov.md](https://github.com/user-attachments/files/34869003/README_11_Nov.md)
 # TREEW | Student Records Manager
 
 A simple C++ console program for storing and managing student records.
