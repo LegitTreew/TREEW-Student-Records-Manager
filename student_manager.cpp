@@ -1,21 +1,16 @@
 /*
-████████╗██████╗ ███████╗███████╗██╗    ██╗
-╚══██╔══╝██╔══██╗██╔════╝██╔════╝██║    ██║
-   ██║   ██████╔╝█████╗  █████╗  ██║ █╗ ██║
-   ██║   ██╔══██╗██╔══╝  ██╔══╝  ██║███╗██║
-   ██║   ██║  ██║███████╗███████╗╚███╔███╔╝
-   ╚═╝   ╚═╝  ╚══════╝╚══════╝ ╚══╝╚══╝
+    ████████╗██████╗ ███████╗███████╗██╗    ██╗
+    ╚══██╔══╝██╔══██╗██╔════╝██╔════╝██║    ██║
+       ██║   ██████╔╝█████╗  █████╗  ██║ █╗ ██║
+       ██║   ██╔══██╗██╔══╝  ██╔══╝  ██║███╗██║
+       ██║   ██║  ██║███████╗███████╗╚███╔███╔╝
+       ╚═╝   ╚═╝  ╚══════╝╚══════╝ ╚══╝╚══╝
 
-          STUDENT RECORDS MANAGER
-          -----------------------
-          Author  : Treew & Cello
-          Version : 1.0
-          Date    : 15 November 2026
-
-   Description:
-   A simple program to manage student names and scores.
-   Users can add, view, search, sort and remove students.
-   The program can also calculate student statistics.
+              STUDENT RECORDS MANAGER
+              -----------------------
+              Author  : Treew
+              Version : 1.0
+              Date    : 15 November 2026
 */
 
 #include <iostream>
@@ -26,53 +21,62 @@
 
 using namespace std;
 
-// Passing score
 const int PASS_MARK = 60;
+
+// Display the TREEW welcome banner
+void showBanner() {
+    cout << "\n";
+    cout << "****************************************************\n";
+    cout << "*                                                  *\n";
+    cout << "*                    TREEW                         *\n";
+    cout << "*                                                  *\n";
+    cout << "*             STUDENT RECORDS MANAGER              *\n";
+    cout << "*                    Version 1.0                   *\n";
+    cout << "*                                                  *\n";
+    cout << "****************************************************\n";
+}
+
+// Read a complete name, including spaces
+string readFullName() {
+    string name;
+    getline(cin >> ws, name);
+    return name;
+}
 
 // Display the main menu
 void showMenu() {
     cout << "\n";
-    cout << "*******************************************************\n";
-    cout << "*                                                     *\n";
-    cout << "*              STUDENT RECORDS MANAGER                *\n";
-    cout << "*                    Version 1.0                      *\n";
-    cout << "*                                                     *\n";
-    cout << "*******************************************************\n";
-
+    cout << "-------------------- MAIN MENU --------------------\n";
     cout << "\n";
-    cout << "   [1] Add Student\n";
-    cout << "   [2] View All Students\n";
-    cout << "   [3] Search Student\n";
-    cout << "   [4] Sort by Score\n";
-    cout << "   [5] Statistics\n";
-    cout << "   [6] Remove Student\n";
-    cout << "   [0] Exit\n";
-
-    cout << "\n-------------------------------------------------------\n";
-    cout << "   Enter your choice: ";
+    cout << "  [1] Add Student\n";
+    cout << "  [2] View All Students\n";
+    cout << "  [3] Search Student\n";
+    cout << "  [4] Sort by Score\n";
+    cout << "  [5] Statistics\n";
+    cout << "  [6] Remove Student\n";
+    cout << "  [0] Exit\n";
+    cout << "\n---------------------------------------------------\n";
+    cout << "  Enter your choice: ";
 }
 
-// Check if a score is between 0 and 100
+// Check whether a score is between 0 and 100
 bool isValidScore(int score) {
     return score >= 0 && score <= 100;
 }
 
-// Add a new student and their score
+// Add a new student
 void addStudent(vector<string>& names, vector<int>& scores) {
-    string name;
-    int score;
-
-    cout << "\nADD STUDENT\n";
+    cout << "\n==================== ADD STUDENT ====================\n";
     cout << "Enter student name: ";
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, name);
+    string name = readFullName();
 
     if (name.empty()) {
         cout << "Name cannot be empty.\n";
         return;
     }
 
+    int score;
     cout << "Enter student score (0-100): ";
 
     if (!(cin >> score)) {
@@ -82,7 +86,7 @@ void addStudent(vector<string>& names, vector<int>& scores) {
         return;
     }
 
-    if (score < 0 || score > 100) {
+    if (!isValidScore(score)) {
         cout << "Invalid score! Enter a score between 0 and 100.\n";
         return;
     }
@@ -91,10 +95,13 @@ void addStudent(vector<string>& names, vector<int>& scores) {
     scores.push_back(score);
 
     cout << "\nStudent added successfully!\n";
+    cout << "Name  : " << name << "\n";
+    cout << "Score : " << score << "\n";
 }
+
 // Display all student records
 void viewAll(const vector<string>& names, const vector<int>& scores) {
-    cout << "\n========== ALL STUDENTS ==========\n";
+    cout << "\n================== ALL STUDENTS ==================\n";
 
     if (names.empty()) {
         cout << "No student records found.\n";
@@ -102,22 +109,21 @@ void viewAll(const vector<string>& names, const vector<int>& scores) {
     }
 
     cout << left << setw(8) << "No."
-         << setw(20) << "Name"
+         << setw(25) << "Name"
          << "Score\n";
-
-    cout << "----------------------------------------\n";
+    cout << "---------------------------------------------------\n";
 
     for (size_t i = 0; i < names.size(); i++) {
         cout << left << setw(8) << i + 1
-             << setw(20) << names[i]
+             << setw(25) << names[i]
              << scores[i] << "\n";
     }
 
-    cout << "----------------------------------------\n";
+    cout << "---------------------------------------------------\n";
     cout << "Total students: " << names.size() << "\n";
 }
 
-// Find a student by name; return -1 if not found
+// Find a student by their complete name
 int findByName(const vector<string>& names, const string& target) {
     for (size_t i = 0; i < names.size(); i++) {
         if (names[i] == target) {
@@ -128,35 +134,29 @@ int findByName(const vector<string>& names, const string& target) {
     return -1;
 }
 
-// Search for and display a student's record
+// Search for a student by full name
 void searchStudent(const vector<string>& names, const vector<int>& scores) {
-    string name;
-
-    cout << "\n========== SEARCH STUDENT ==========\n";
+    cout << "\n================== SEARCH STUDENT ==================\n";
     cout << "Enter student name: ";
-    cin >> name;
 
+    string name = readFullName();
     int index = findByName(names, name);
 
     if (index == -1) {
-        cout << "\nStudent not found!\n";
+        cout << "\nStudent not found.\n";
         return;
     }
 
     cout << "\nStudent found!\n";
     cout << "Name  : " << names[index] << "\n";
     cout << "Score : " << scores[index] << "\n";
-
-    if (scores[index] >= PASS_MARK) {
-        cout << "Status: PASS\n";
-    } else {
-        cout << "Status: FAIL\n";
-    }
+    cout << "Status: "
+         << (scores[index] >= PASS_MARK ? "PASS" : "FAIL") << "\n";
 }
 
-// Sort students from highest to lowest using bubble sort
+// Sort students from highest to lowest using Bubble Sort
 void sortByScoreDescending(vector<string>& names, vector<int>& scores) {
-    int size = static_cast<int>(names.size());
+    int size = static_cast<int>(scores.size());
 
     if (size == 0) {
         cout << "\nNo students to sort.\n";
@@ -166,12 +166,10 @@ void sortByScoreDescending(vector<string>& names, vector<int>& scores) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (scores[j] < scores[j + 1]) {
-                // Swap the scores
                 int tempScore = scores[j];
                 scores[j] = scores[j + 1];
                 scores[j + 1] = tempScore;
 
-                // Swap the names so they stay matched with their scores
                 string tempName = names[j];
                 names[j] = names[j + 1];
                 names[j + 1] = tempName;
@@ -182,49 +180,49 @@ void sortByScoreDescending(vector<string>& names, vector<int>& scores) {
     cout << "\nStudents sorted successfully!\n";
 }
 
-// Calculate the average student score
+// Calculate the average score
 double computeAverage(const vector<int>& scores) {
     int total = 0;
 
-    for (size_t i = 0; i < scores.size(); i++) {
-        total += scores[i];
+    for (int score : scores) {
+        total += score;
     }
 
     return static_cast<double>(total) / scores.size();
 }
 
-// Find the highest student score
+// Find the highest score
 int findHighest(const vector<int>& scores) {
     int highest = scores[0];
 
-    for (size_t i = 1; i < scores.size(); i++) {
-        if (scores[i] > highest) {
-            highest = scores[i];
+    for (int score : scores) {
+        if (score > highest) {
+            highest = score;
         }
     }
 
     return highest;
 }
 
-// Find the lowest student score
+// Find the lowest score
 int findLowest(const vector<int>& scores) {
     int lowest = scores[0];
 
-    for (size_t i = 1; i < scores.size(); i++) {
-        if (scores[i] < lowest) {
-            lowest = scores[i];
+    for (int score : scores) {
+        if (score < lowest) {
+            lowest = score;
         }
     }
 
     return lowest;
 }
 
-// Count students with scores of 60 or higher
+// Count students who passed
 int countPassing(const vector<int>& scores) {
     int total = 0;
 
-    for (size_t i = 0; i < scores.size(); i++) {
-        if (scores[i] >= PASS_MARK) {
+    for (int score : scores) {
+        if (score >= PASS_MARK) {
             total++;
         }
     }
@@ -232,9 +230,9 @@ int countPassing(const vector<int>& scores) {
     return total;
 }
 
-// Display student score statistics
+// Display student statistics
 void showStatistics(const vector<int>& scores) {
-    cout << "\n========== STUDENT STATISTICS ==========\n";
+    cout << "\n================ STUDENT STATISTICS ================\n";
 
     if (scores.empty()) {
         cout << "No student records available.\n";
@@ -251,61 +249,45 @@ void showStatistics(const vector<int>& scores) {
     cout << "Lowest Score   : " << findLowest(scores) << "\n";
     cout << "Passing        : " << passing << "\n";
     cout << "Failing        : " << failing << "\n";
-    cout << "=========================================\n";
 }
 
-// Find and remove a student by name
+// Remove a student by full name
 void removeStudent(vector<string>& names, vector<int>& scores) {
-    string name;
-
-    cout << "\n========== REMOVE STUDENT ==========\n";
+    cout << "\n================== REMOVE STUDENT ==================\n";
     cout << "Enter student name: ";
-    cin >> name;
 
+    string name = readFullName();
     int index = findByName(names, name);
 
     if (index == -1) {
-        cout << "\nStudent not found!\n";
+        cout << "\nStudent not found.\n";
         return;
     }
 
-    // Remove the name and score at the same index
     names.erase(names.begin() + index);
     scores.erase(scores.begin() + index);
 
     cout << "\nStudent removed successfully!\n";
 }
 
+// Main program
 int main() {
-    // Store student names and scores
     vector<string> names;
     vector<int> scores;
-
     int choice;
 
-    // Welcome screen
-    cout << "\n";
-    cout << "*******************************************************\n";
-    cout << "*                                                     *\n";
-    cout << "*                  WELCOME TO TREEW                   *\n";
-    cout << "*              STUDENT RECORDS MANAGER                *\n";
-    cout << "*                                                     *\n";
-    cout << "*******************************************************\n";
+    showBanner();
 
-    // Keep showing the menu until the user chooses 0
     do {
         showMenu();
 
-        // Check if the menu input is a number
         if (!(cin >> choice)) {
             cout << "\nInvalid input! Please enter a number.\n";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            choice = -1;
             continue;
         }
 
-        // Perform the selected menu option
         switch (choice) {
             case 1:
                 addStudent(names, scores);
@@ -332,12 +314,14 @@ int main() {
                 break;
 
             case 0:
-                cout << "\nThank you for using TREEW Student Records Manager!\n";
-                cout << "Goodbye!\n";
+                cout << "\n****************************************************\n";
+                cout << "*       Thank you for using TREEW Manager!         *\n";
+                cout << "*                    Goodbye.                      *\n";
+                cout << "****************************************************\n";
                 break;
 
             default:
-                cout << "\nInvalid choice! Please select 0-6.\n";
+                cout << "\nInvalid choice. Please select 0-6.\n";
         }
 
     } while (choice != 0);
