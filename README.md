@@ -1,5 +1,5 @@
 [test_plan_15_November_2026.md](https://github.com/user-attachments/files/34868705/test_plan_15_November_2026.md)
-# Test Plan – TREEW Student Records Manager
+# Test Plan - TREEW Student Records Manager
 
 **Author:** Treew  
 **Project:** Student Records Manager  
