@@ -1,49 +1,61 @@
-[TREEW_test_plan.md](https://github.com/user-attachments/files/34868824/TREEW_test_plan.md)
-# Test Plan: TREEW Student Records Manager
+[README_11_Nov.md](https://github.com/user-attachments/files/34869003/README_11_Nov.md)
+# TREEW | Student Records Manager
 
-**Author:** Treew & Cello
-**Project:** Student Records Manager  
-**Version:** 1.0  
-**Date:** 15 November 2026
+A simple C++ console program for storing and managing student records.
 
-## 1. Test Objective
+## Features
 
-The purpose of this test plan is to check that the Student Records Manager works correctly. The tests cover its six main features and input checks.
+- Add student records
+- View all students
+- Search for a student by name
+- Sort students by score (highest to lowest)
+- View score statistics
+- Remove a student record
+- Validate scores and menu input
 
-## 2. Test Data
+## Requirements
 
-These sample student records were used for testing:
+- A C++ compiler
+- Visual Studio Code (or another code editor)
 
-| Student Name | Score |
-|---|---:|
-| Ani | 78 |
-| Bima | 92 |
-| Citra | 55 |
+## How to Run
 
-## 3. Test Cases and Results
+1. Open the project folder in your code editor.
+2. Compile `student_manager.cpp`.
+3. Run the compiled program.
+4. Follow the menu shown in the console.
 
-| Test ID | Feature | Test Input or Action | Expected Result | Actual Result | Status |
-|---|---|---|---|---|---|
-| T01 | Add student | Add Ani with a score of 78. | Ani and the score 78 are saved in the program. | Worked as expected. | PASS |
-| T02 | Check student score | Try to add a student with a score of 150. | The program rejects the score because it must be from 0 to 100. | Worked as expected. | PASS |
-| T03 | View all students | Select option 2 after adding the sample students. | The program shows all student names and scores. | Worked as expected. | PASS |
-| T04 | Search for a student | Search for Bima. | The program shows Bima's name and score of 92. | Worked as expected. | PASS |
-| T05 | Search for a missing student | Search for a name that is not in the records. | The program shows "Student not found!" | Worked as expected. | PASS |
-| T06 | Sort by score | Select option 4, then option 2. | The students appear from highest to lowest score: Bima, Ani, Citra. | Worked as expected. | PASS |
-| T07 | View statistics | Select option 5 with the three sample students. | Average: 75.00, highest: 92, lowest: 55, passing: 2, failing: 1. | Worked as expected. | PASS |
-| T08 | Remove a student | Remove Citra. | Citra's name and score are removed. | Worked as expected. | PASS |
-| T09 | View records after removal | Select option 2 after removing Citra. | Only Ani and Bima remain. | Worked as expected. | PASS |
-| T10 | Check menu input | Enter a letter instead of a menu number. | The program shows an invalid input message and returns to the menu. | Worked as expected. | PASS |
-| T11 | Check empty records | View students or check statistics when there are no students. | The program says that no student records are available. | Worked as expected. | PASS |
+Example compile command:
 
-## 4. Test Summary
+```bash
+g++ student_manager.cpp -o student_manager
+```
 
-- **Total test cases:** 11
-- **Passed:** 11
-- **Failed:** 0
+Run on Windows:
 
-All the features and input checks listed above worked as expected during testing.
+```bash
+student_manager.exe
+```
 
-## 5. Notes
+Run on macOS or Linux:
 
-The program keeps student records in vectors while it is running. The records are not saved permanently, so they are lost when the program closes.
+```bash
+./student_manager
+```
+
+## Project Files
+
+| File | Description |
+|---|---|
+| `student_manager.cpp` | Main C++ source code |
+| `test_plan.md` | Test cases and results |
+| `bug_note.md` | Description of a bug and its fix |
+
+## Notes
+
+- The passing score is 60.
+- Student scores must be between 0 and 100.
+- Student names can contain spaces.
+
+---
+**TREEW** · Student Records Manager · Version 1.0
