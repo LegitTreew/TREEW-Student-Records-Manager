@@ -62,9 +62,16 @@ void addStudent(vector<string>& names, vector<int>& scores) {
     string name;
     int score;
 
-    cout << "\n========== ADD STUDENT ==========\n";
+    cout << "\nADD STUDENT\n";
     cout << "Enter student name: ";
-    cin >> name;
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, name);
+
+    if (name.empty()) {
+        cout << "Name cannot be empty.\n";
+        return;
+    }
 
     cout << "Enter student score (0-100): ";
 
@@ -75,20 +82,16 @@ void addStudent(vector<string>& names, vector<int>& scores) {
         return;
     }
 
-    if (!isValidScore(score)) {
-        cout << "Invalid score! Score must be between 0 and 100.\n";
+    if (score < 0 || score > 100) {
+        cout << "Invalid score! Enter a score between 0 and 100.\n";
         return;
     }
 
-    // Add the name and score together
     names.push_back(name);
     scores.push_back(score);
 
     cout << "\nStudent added successfully!\n";
-    cout << "Name  : " << name << "\n";
-    cout << "Score : " << score << "\n";
 }
-
 // Display all student records
 void viewAll(const vector<string>& names, const vector<int>& scores) {
     cout << "\n========== ALL STUDENTS ==========\n";
