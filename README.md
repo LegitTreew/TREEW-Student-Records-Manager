@@ -48,7 +48,7 @@ Run on macOS or Linux:
 | File | Description |
 |---|---|
 | `student_manager.cpp` | Main C++ source code |
-| `test_plan.md` | Test cases and results |
+| `TREEW_test_plan_11_Nov_2026.md` | Test cases and results |
 | `bug_note.md` | Description of a bug and its fix |
 
 ## Notes
