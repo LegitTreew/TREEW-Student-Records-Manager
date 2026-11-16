@@ -1,4 +1,4 @@
-<img src="./lain.png"
+<img src="./lain-flipped.png"
      align="right"
      width="220"
      alt="Lain">
