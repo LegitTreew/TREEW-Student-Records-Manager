@@ -4,7 +4,7 @@ A simple C++ console program for storing and managing student records.
 
 ## Features
 
-<img src="./lain.png"
+<img src="./lain-flipped.png"
      align="right"
      width="190"
      alt="Lain">
