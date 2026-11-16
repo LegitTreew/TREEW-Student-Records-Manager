@@ -1,4 +1,4 @@
-<img src="assets/lain.png"
+<img src="./lain.png"
      align="right"
      width="200"
      alt="Lain">
