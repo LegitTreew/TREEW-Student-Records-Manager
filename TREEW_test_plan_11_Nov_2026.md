@@ -11,7 +11,7 @@ The purpose of this test plan is to check that the Student Records Manager works
 
 ## 2. Test Data
 
-<img src="assets/tuff_lain.gif" width="180" align="right" alt="Lain">
+<img src="assets/tuff_lain.gif" width="140" align="right" alt="Lain">
 
 The following sample student records were used for testing:
 
