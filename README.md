@@ -1,7 +1,8 @@
 <img src="./lain.png"
      align="right"
-     width="200"
-     alt="Lain">
+     width="220"
+     alt="Lain"
+     style="transform: scaleX(-1);">
 
 # TREEW | Student Records Manager
 
