@@ -1,3 +1,8 @@
+<img src="assets/lain.png"
+     align="right"
+     width="200"
+     alt="Lain">
+
 # TREEW | Student Records Manager
 
 A simple C++ console program for storing and managing student records.
