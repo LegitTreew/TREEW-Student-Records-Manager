@@ -6,7 +6,7 @@ A simple C++ console program for storing and managing student records.
 
 <img src="./lain-flipped.png"
      align="right"
-     width="190"
+     width="220"
      alt="Lain">
 
 - Add student records
