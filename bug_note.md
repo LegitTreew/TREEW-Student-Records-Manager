@@ -23,5 +23,5 @@ All three operations worked correctly.
 **Status:** Resolved and tested.
 
 <p align="right">
-  <img src="assets/lain_sleep.gif" width="120" alt="Sleeping Lain">
+  <img src="assets/lain_sleep.gif" width="160" alt="Sleeping Lain">
 </p>
